@@ -1,0 +1,37 @@
+#idk y its here but ban
+logs
+
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+#occupational hazards
+/projects/mcp/
+/projects/clean/
+/projects/forge/
+/projects/**/build/
+/projects/**/out/
+/projects/**/run/
+/projects/**/*.launch
+/repo/
+/buildSrc
+src/generated/resources/.cache/
