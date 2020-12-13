@@ -1,0 +1,26 @@
+{
+  "loader": "forge:obj",
+  "model": "oversmith:models/item/sword.obj",
+  "textures": {
+    "blade": "oversmith:items/iron.png",
+    "guard": "oversmith:items/iron.png",
+    "grip": "oversmith:items/wood.png",
+    "pommel": "oversmith:items/iron.png"
+  },
+  "flip-v": true,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [8,2,-8],
+      "rotation": [0,90,0]
+    },
+    "firstperson_righthand": {
+      "translation": [8,2,-8],
+      "rotation": [0,90,0]
+    },
+    "gui": {
+      "translation": [7.5,1,0],
+      "rotation": [0,0,45],
+      "scale": [0.7,0.7,0.7]
+    }
+  }
+}
