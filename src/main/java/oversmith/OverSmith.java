@@ -1,6 +1,7 @@
 package oversmith;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.client.network.play.ClientPlayNetHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

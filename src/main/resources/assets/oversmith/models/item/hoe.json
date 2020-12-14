@@ -14,7 +14,7 @@
     "gui": {
       "translation": [0,-8,0],
       "rotation": [0,0,-45],
-      "scale": [0.8,0.8,0.8]
+      "scale": [0.6,0.6,0.6]
     }
   },
   "overrides": [
