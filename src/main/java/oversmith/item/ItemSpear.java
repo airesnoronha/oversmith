@@ -1,4 +1,4 @@
-package oversmith.items;
+package oversmith.item;
 
 public class ItemSpear {
 }

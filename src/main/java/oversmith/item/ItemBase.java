@@ -1,7 +1,6 @@
-package oversmith.items;
+package oversmith.item;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import oversmith.init.SmithItems;
 
 public class ItemBase extends Item {

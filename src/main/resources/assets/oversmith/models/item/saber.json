@@ -1,6 +1,6 @@
 {
   "loader": "forge:obj",
-  "model": "oversmith:models/item/sword.obj",
+  "model": "oversmith:models/item/saber.obj",
   "flip-v": true,
   "display": {
     "thirdperson_righthand": {

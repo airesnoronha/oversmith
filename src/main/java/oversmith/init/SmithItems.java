@@ -10,7 +10,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import oversmith.OverSmith;
-import oversmith.items.ItemSword;
+import oversmith.item.ItemSword;
 
 import javax.annotation.Nullable;
 
@@ -31,8 +31,6 @@ public class SmithItems {
 	public static ItemGroup SmithItems = new SmithItemGroupClass("Smith_items");
 
 	public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, OverSmith.MOD_ID);
-
-	public static RegistryObject<Item> SWORD = ITEMS.register("sword", ItemSword::new);
 
 	public static class MaterialGetter implements IItemPropertyGetter {
 		private String part;
@@ -62,4 +60,12 @@ public class SmithItems {
 		ItemModelsProperties.registerProperty(SWORD.get(), new ResourceLocation(OverSmith.MOD_ID, "pommel"),  new MaterialGetter("pommel"));
 		ItemModelsProperties.registerProperty(SWORD.get(), new ResourceLocation(OverSmith.MOD_ID, "guard"),  new MaterialGetter("guard"));
 	}
+
+	public static RegistryObject<Item> SWORD = ITEMS.register("sword", () -> new ItemSword(SmithMaterial.WOOD)) ;
+	public static RegistryObject<Item> SABER = ITEMS.register("saber", () -> new ItemSword(SmithMaterial.WOOD));
+	public static RegistryObject<Item> SPEAR = ITEMS.register("spear", () -> new ItemSword(SmithMaterial.WOOD));
+	public static RegistryObject<Item> AXE = ITEMS.register("axe", () -> new ItemSword(SmithMaterial.WOOD));
+	public static RegistryObject<Item> HOE = ITEMS.register("hoe", () -> new ItemSword(SmithMaterial.WOOD));
+	public static RegistryObject<Item> PICKAXE = ITEMS.register("pickaxe", () -> new ItemSword(SmithMaterial.WOOD));
+	public static RegistryObject<Item> SHOVEL = ITEMS.register("shovel", () -> new ItemSword(SmithMaterial.WOOD));
 }
