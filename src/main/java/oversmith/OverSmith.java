@@ -1,7 +1,6 @@
 package oversmith;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.client.network.play.ClientPlayNetHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,56 +23,55 @@ public class OverSmith
 
 	public static final String MOD_ID = "oversmith";
 
-    // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+	// Directly reference a log4j logger.
+	private static final Logger LOGGER = LogManager.getLogger();
 
-    public OverSmith() {
+	public OverSmith() {
 
-    	//Register items in the deferred mode
+		//Register items in the deferred mode
 		SmithItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+		// Register the setup method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		// Register the enqueueIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+		// Register the processIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+		// Register the doClientStuff method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-    }
+		// Register ourselves for server and other game events we are interested in
+		MinecraftForge.EVENT_BUS.register(this);
+	}
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        SmithItems.initProperties();
-    }
+	private void setup(final FMLCommonSetupEvent event)
+	{
+		// some preinit code
+		LOGGER.info("HELLO FROM PREINIT");
+		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+	}
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-    }
+	private void doClientStuff(final FMLClientSetupEvent event) {
+		// do something that can only be done on the client
+		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+	}
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-    }
+	private void enqueueIMC(final InterModEnqueueEvent event)
+	{
+	}
 
-    private void processIMC(final InterModProcessEvent event)
-    {
-        // some example code to receive and process InterModComms from other mods
-        LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m->m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
-    }
+	private void processIMC(final InterModProcessEvent event)
+	{
+		// some example code to receive and process InterModComms from other mods
+		LOGGER.info("Got IMC {}", event.getIMCStream().
+				map(m->m.getMessageSupplier().get()).
+				collect(Collectors.toList()));
+	}
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        // do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
+	// You can use SubscribeEvent and let the Event Bus discover methods to call
+	@SubscribeEvent
+	public void onServerStarting(FMLServerStartingEvent event) {
+		// do something when the server starts
+		LOGGER.info("HELLO from server starting");
+	}
 }

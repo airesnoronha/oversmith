@@ -1,4 +1,4 @@
 package oversmith.item;
 
-public class ItemSpear {
+public class ToolItem {
 }

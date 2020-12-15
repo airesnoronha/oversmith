@@ -11,35 +11,25 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import oversmith.init.SmithItems;
 import oversmith.init.SmithMaterial;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @MethodsReturnNonnullByDefault
-public class ItemSword extends Item {
+@ParametersAreNonnullByDefault
+public class WeaponItem extends Item {
 
-	private SmithMaterial material;
+	protected SmithMaterial material;
 
-	private final Multimap<Attribute, AttributeModifier> attributeModifiers;
+	protected final Multimap<Attribute, AttributeModifier> attributeModifiers;
 
-	public ItemSword( SmithMaterial material) {
-		super(new Item.Properties().group(SmithItems.SmithItems));
+	public WeaponItem(Properties properties, SmithMaterial material) {
+		super(properties);
 		this.material = material;
 		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.material.attackDamage, AttributeModifier.Operation.ADDITION));
 		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.material.attackSpeed, AttributeModifier.Operation.ADDITION));
 		attributeModifiers = builder.build();
-	}
-
-	@Override
-	public ItemStack getDefaultInstance() {
-		ItemStack stack = super.getDefaultInstance();
-		CompoundNBT tag = stack.getTag();
-		if(tag == null) tag = new CompoundNBT();
-		tag.putFloat("blade", 1);
-		tag.putFloat("guard", 1);
-		tag.putFloat("grip", 0);
-		tag.putFloat("pommel", 1);
-		return stack;
 	}
 
 	@Override
