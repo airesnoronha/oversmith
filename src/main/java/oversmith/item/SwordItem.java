@@ -23,4 +23,6 @@ public class SwordItem extends WeaponItem {
 		tag.putFloat("pommel", 1);
 		return stack;
 	}
+
+
 }

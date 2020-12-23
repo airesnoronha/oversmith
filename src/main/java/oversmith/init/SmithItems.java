@@ -1,6 +1,7 @@
 package oversmith.init;
 
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
@@ -10,9 +11,12 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import oversmith.OverSmith;
+import oversmith.client.render.item.SwordRender;
 import oversmith.item.SwordItem;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.Callable;
+import java.util.function.Supplier;
 
 public class SmithItems {
 
@@ -61,7 +65,7 @@ public class SmithItems {
 		ItemModelsProperties.registerProperty(SWORD.get(), new ResourceLocation(OverSmith.MOD_ID, "guard"),  new MaterialGetter("guard"));
 	}
 
-	public static RegistryObject<Item> SWORD = ITEMS.register("sword", () -> new SwordItem(new Item.Properties().group(SmithItems), SmithMaterial.WOOD)) ;
+	public static RegistryObject<Item> SWORD = ITEMS.register("sword", () -> new SwordItem(new Item.Properties().group(SmithItems).setISTER(() -> SwordRender::new), SmithMaterial.WOOD)) ;
 	public static RegistryObject<Item> SABER = ITEMS.register("saber", () -> new SwordItem(new Item.Properties().group(SmithItems), SmithMaterial.WOOD));
 	public static RegistryObject<Item> SPEAR = ITEMS.register("spear", () -> new SwordItem(new Item.Properties().group(SmithItems), SmithMaterial.WOOD));
 	public static RegistryObject<Item> AXE = ITEMS.register("axe", () -> new SwordItem(new Item.Properties().group(SmithItems), SmithMaterial.WOOD));

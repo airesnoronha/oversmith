@@ -9,5 +9,5 @@ import oversmith.OverSmith;
 public class SmithBlocks {
 	public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OverSmith.MOD_ID);
 
-	public static RegistryObject<Block> Piston
+	public static RegistryObject<Block> Piston;
 }
